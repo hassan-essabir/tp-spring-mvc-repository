@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="template">
 <head>
 <meta charset="utf-8" />
-<title>Saisie des etudiants</title>
+<title>Modification des etudiants</title>
 <link rel="stylesheet" type="text/css"
 	href="../static/css/bootstrap.min.css"
 	th:href="@{/css/bootstrap.min.css}" />
@@ -14,13 +14,18 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 <body layout:fragment="content">
 	<div class="col-md-6 col-sm-6 col-xs-12 spacer col-md-offset-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">Saisie d'un etudiant</div>
+			<div class="panel-heading">Modification d'un etudiant</div>
 			<div class="panel-body">
-				<form th:action="@{saveEtudiant}" method="post"
+				<form th:action="@{UpdateEtudiant}" method="post"
 					th:object="${etudiant}" enctype="multipart/form-data">
 					<div class="form-group">
+						<label class="control-label">ID :</label> <input type="text"
+							name="id" th:field="*{id}" class="form-control" /> <span
+							th:errors="*{id}" class="text-danger"></span>
+					</div>
+					<div class="form-group">
 						<label class="control-label">Nom :</label> <input type="text"
-							th:field="*{nom}" name="nom" class="form-control" /> <span
+							name="nom" th:field="*{nom}" class="form-control" /> <span
 							th:errors="*{nom}" class="text-danger"></span>
 					</div>
 					<div class="form-group">
@@ -37,7 +42,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 					<div class="form-group">
 						<label class="control-label">Photo :</label> <input type="file"
 							name="picture" class="form-control" /> <span
-							th:errors="*{photo}" class="text-danger"></span>
+							th:errors="*{photo}" class="text-danger"></span> <img
+							class="img-circle" th:src="@{getPhoto(id=${etudiant.id})}"
+							width="100" height="100" />
 					</div>
 					<div>
 						<button type="submit" class="btn btn-primary">Save</button>

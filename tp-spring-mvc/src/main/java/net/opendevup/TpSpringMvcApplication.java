@@ -22,16 +22,16 @@ public class TpSpringMvcApplication {
 				TpSpringMvcApplication.class, args);
 		EtudiantRepository etudiantRepository = ctx
 				.getBean(EtudiantRepository.class);
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		etudiantRepository.save(new Etudiant("Ahmed", df.parse("1988-10-10"),
-				"Ahmed@gmail.com", "Ahmde.jpg"));
-		etudiantRepository.save(new Etudiant("Mohamed", df.parse("1988-11-10"),
-				"Mohamed@gmail.com", "Mohamed.jpg"));
-		etudiantRepository.save(new Etudiant("Ibrahim", df.parse("1988-12-10"),
-				"Ibrahim@gmail.com", "Ibrahim.jpg"));
+//		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//		etudiantRepository.save(new Etudiant("Ahmed", df.parse("1988-10-10"),
+//				"Ahmed@gmail.com", "Ahmde.jpg"));
+//		etudiantRepository.save(new Etudiant("Mohamed", df.parse("1988-11-10"),
+//				"Mohamed@gmail.com", "Mohamed.jpg"));
+//		etudiantRepository.save(new Etudiant("Ibrahim", df.parse("1988-12-10"),
+//				"Ibrahim@gmail.com", "Ibrahim.jpg"));
 
-		Page<Etudiant> etds = etudiantRepository.chercherEtudiants("%B%",
-				new PageRequest(0, 5));
-		etds.forEach(e -> System.out.println(e.getNom()));
+//		Page<Etudiant> etds = etudiantRepository.chercherEtudiants("%B%",
+//				new PageRequest(0, 5));
+//		etds.forEach(e -> System.out.println(e.getNom()));
 	}
 }
